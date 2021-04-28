@@ -37,9 +37,9 @@
 
             <!-- Расчет площадей -->
             <div class="lay1">
-              <div id="square_floor" name="pol"></div>
-              <div id="square_ceil" name="potoloc"></div>
-              <div id="square_wall" name="steny"></div>
+              <div id="square_floor"></div>
+              <div id="square_ceil"></div>
+              <div id="square_wall"></div>
             </div>
             <div id="doorsarray"></div>
 
@@ -47,7 +47,7 @@
             <div class="calcw">
               <span class="label0">Материал стен:</span>
               <select id="stena" name="stena" size="1" onChange="calc();" onKeyUp="calc();" onClick="calc();">
-                <option value="0"></option>
+                <option value="0">&nbsp;</option>
                 <option value="650">
                   Имитация бруса 22х170х6000 сорт А - 650 руб./м2
                 </option>
@@ -329,7 +329,7 @@
               </select>
               <span class="label0">Материал потолка:</span>
               <select id="potolok" name="potolok" size="1" onChange="calc();" onKeyUp="calc();" onClick="calc();">
-                <option value="0"></option>
+                <option value="0">&nbsp;</option>
                 <option value="650">
                   Имитация бруса 22х170х6000 сорт А - 650 руб./м2
                 </option>
@@ -569,7 +569,7 @@
               </select>
               <span class="label0">Материал пола:</span>
               <select id="polovaya" name="polovaya" size="1" onChange="calc();" onKeyUp="calc();" onClick="calc();">
-                <option value="0"></option>
+                <option value="0">&nbsp;</option>
                 <option value="780">
                   Европол 28х115х6000 сорт АВ - 780 руб./м2
                 </option>
@@ -679,7 +679,7 @@
               </div>
 
               <div class="baton">
-                <input type="checkbox" value="Y" checked="" name="" style="width: initial; height: 12px" />
+                <input type="checkbox" value="Y" checked name="checked" style="width: initial; height: 12px" />
                 <a href="#">Нажимая кнопку, я даю свое согласие на обработку моих
                   персональных данных</a>
                 <button class="butBig" type="submit">
