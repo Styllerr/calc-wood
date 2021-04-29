@@ -14,683 +14,686 @@
     <h1 id="pageTitle">Калькулятор расчета материалов</h1>
     <div id="page_wrapper">
       <div id="content_wrapper">
-          <form name="calculator" id="formx" action="#">
-            <img src="./room.png" alt="Площадь помещения" class="calc-top-img"/>
-            <h2>Размер помещения</h2>
-            <div class="calcw">
-              <label for="dim_a" class="label0">Длина A (м):</label>
-              <input type="text" id="dim_a" name="dim_a" value="" onChange="calc();" onKeyUp="calc();"
-                onClick="calc();" />
-              <label for="dim_b" class="label0">Ширина В (м):</label>
-              <input type="text" id="dim_b" name="dim_b" value="" onChange="calc();" onKeyUp="calc();"
-                onClick="calc();" />
-              <label for="dim_c" class="label0">Высота С (м):</label>
-              <input type="text" id="dim_c" name="dim_c" value="" onChange="calc();" onKeyUp="calc();"
-                onClick="calc();" />
-              <label for="wcount" class="label0">Площадь окон (м<sup>2</sup>):</label>
-              <input type="text" id="wcount" name="wcount" value="0" onChange="calc();" onKeyUp="calc();"
-                onClick="calc();" />
-              <label for="dcount" class="label0">Площадь дверей (м<sup>2</sup>):</label>
-              <input type="text" id="dcount" name="dcount" value="0" onChange="calc();" onKeyUp="calc();"
-                onClick="calc();" />
-            </div>
+        <form name="calculator" id="formx" action="#">
+          <img src="./room.png" alt="Площадь помещения" class="calc-top-img" />
+          <h2>Размер помещения</h2>
+          <div class="calcw">
+            <label for="dim_a" class="label0">Длина A (м):</label>
+            <input type="text" id="dim_a" name="dim_a" value="" onChange="calc();" onKeyUp="calc();"
+              onClick="calc();" />
+            <label for="dim_b" class="label0">Ширина В (м):</label>
+            <input type="text" id="dim_b" name="dim_b" value="" onChange="calc();" onKeyUp="calc();"
+              onClick="calc();" />
+            <label for="dim_c" class="label0">Высота С (м):</label>
+            <input type="text" id="dim_c" name="dim_c" value="" onChange="calc();" onKeyUp="calc();"
+              onClick="calc();" />
+            <label for="wcount" class="label0">Площадь окон (м<sup>2</sup>):</label>
+            <input type="text" id="wcount" name="wcount" value="0" onChange="calc();" onKeyUp="calc();"
+              onClick="calc();" />
+            <label for="dcount" class="label0">Площадь дверей (м<sup>2</sup>):</label>
+            <input type="text" id="dcount" name="dcount" value="0" onChange="calc();" onKeyUp="calc();"
+              onClick="calc();" />
+          </div>
 
-            <!-- Расчет площадей -->
-            <div class="lay1">
-              <div id="square_floor"></div>
-              <div id="square_ceil"></div>
-              <div id="square_wall"></div>
-            </div>
-            <div id="doorsarray"></div>
+          <!-- Расчет площадей -->
+          <div class="lay1">
+            <div id="square_floor"></div>
+            <div id="square_ceil"></div>
+            <div id="square_wall"></div>
+          </div>
+          <div id="doorsarray"></div>
 
-            <h2>Материалы</h2>
-            <div class="calcw">
-              <span class="label0">Материал стен:</span>
-              <select id="stena" name="stena" size="1" onChange="calc();" onKeyUp="calc();" onClick="calc();">
-                <option value="0">&nbsp;</option>
-                <option value="650">
-                  Имитация бруса 22х170х6000 сорт А - 650 руб./м2
-                </option>
-                <option value="780">
-                  Имитация бруса 28х110х4000 сорт АВ - 780 руб./м2
-                </option>
-                <option value="780">
-                  Имитация бруса 28х190х6000 сорт АВ - 780 руб./м2
-                </option>
-                <option value="1000">
-                  Имитация бруса 36х190х6000 сорт АВ - 1000 руб./м2
-                </option>
-                <option value="480">
-                  Имитация бруса 16х96х6000 сорт АВ - 480 руб./м2
-                </option>
-                <option value="600">
-                  Блок хаус сорт АВ 20х96х6000 - 600 руб./м2
-                </option>
-                <option value="780">
-                  Блок хаус сорт АВ 28х140х6000 - 780 руб./м2
-                </option>
-                <option value="1000">
-                  Блок хаус сорт АВ 36х140х6000 - 1000 руб./м2
-                </option>
-                <option value="1000">
-                  Блок хаус сорт А 36х190х6000 - 1000 руб./м2
-                </option>
-                <option value="1260">
-                  Блок хаус сорт А 45х140х6000 - 1260 руб./м2
-                </option>
-                <option value="380">
-                  Вагонка штиль сорт А 12,5х96х3000 - 380 руб./м2
-                </option>
-                <option value="430">
-                  Вагонка штиль сорт АВ 14х140х6000 - 430 руб./м2
-                </option>
-                <option value="480">
-                  Имитация бруса 16х140х6000 Сорт АВ - 480 руб./м2
-                </option>
-                <option value="480">
-                  Имитация бруса 16х140х6000 Сорт С - 480 руб./м2
-                </option>
-                <option value="900">
-                  Имитация бруса 32х185х6000 Сорт А - 900 руб./м2
-                </option>
-                <option value="380">
-                  Вагонка Softline сорт А 12,5х80х3300 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Вагонка Softline сорт АВ 12,5х0,82х3600 - 380 руб./м2
-                </option>
-                <option value="480">
-                  Доска четверть 20х140х6000 - 480 руб./м2
-                </option>
-                <option value="1260">
-                  Блок хаус сорт АВ 45х190х6000 - 1260 руб./м2
-                </option>
-                <option value="600">
-                  Доска четверть 20х120х6000 - 600 руб./м2
-                </option>
-                <option value="600">
-                  Доска четверть 20х90х4000 - 600 руб./м2
-                </option>
-                <option value="480">
-                  Вагонка &quot;Колхозница&quot; 16х96х6000 сорт АВ - 480
-                  руб./м2
-                </option>
-                <option value="480">
-                  Вагонка &quot;Колхозница&quot; 16х96х3000 сорт АВ - 480
-                  руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;А&quot; 12,5х96х5000 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;А&quot; 12,5х96х2400 - 380 руб./м2
-                </option>
-                <option value="310">
-                  Евровагонка &quot;С&quot; 12,5х96х2500 - 310 руб./м2
-                </option>
-                <option value="310">
-                  Евровагонка &quot;С&quot; 12,5х96х3000 - 310 руб./м2
-                </option>
-                <option value="310">
-                  Евровагонка &quot;С&quot; 12,5х96х2700 - 310 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;А&quot; 12,5х96х2000 - 380 руб./м2
-                </option>
-                <option value="480">
-                  Имитация бруса 16х110х6000 сорт АВ - 480 руб./м2
-                </option>
-                <option value="430">
-                  Вагонка штиль сорт А 14х95х6000 - 430 руб./м2
-                </option>
-                <option value="480">
-                  Вагонка &quot;Колхозница&quot; 16х96х2700 сорт АВ - 480
-                  руб./м2
-                </option>
-                <option value="380">
-                  Вагонка &quot;Колхозница&quot; 13х96х6000 сорт АВ - 380
-                  руб./м2
-                </option>
-                <option value="480">
-                  Вагонка штиль сорт А 16х96х4000 - 480 руб./м2
-                </option>
-                <option value="310">
-                  Вагонка штиль сорт С 12,5х96х3000 - 310 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х190х6000 сорт АВ - 600 руб./м2
-                </option>
-                <option value="480">
-                  Вагонка штиль сорт А 16х115х6000 - 480 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х190х6000 сорт С - 600 руб./м2
-                </option>
-                <option value="600">
-                  Доска четверть 20х115х6000 - 600 руб./м2
-                </option>
-                <option value="1000">
-                  Блок хаус сорт А 36х170х6000 - 1000 руб./м2
-                </option>
-                <option value="650">
-                  Имитация бруса 22х195х6000 сорт А - 650 руб./м2
-                </option>
-                <option value="650">
-                  Имитация бруса 22х145х6000 сорт А - 650 руб./м2
-                </option>
-                <option value="480">
-                  Имитация бруса 16х140х6000 сорт А - 480 руб./м2
-                </option>
-                <option value="540">
-                  Имитация бруса 18х170х6000 сорт А - 540 руб./м2
-                </option>
-                <option value="540">
-                  Имитация бруса 18х195х6000 сорт А - 540 руб./м2
-                </option>
-                <option value="600">
-                  Доска четверть 20х95х6000 - 600 руб./м2
-                </option>
-                <option value="780">
-                  Имитация бруса 28х110х3000 сорт АВ - 780 руб./м2
-                </option>
-                <option value="1000">
-                  Имитация бруса 36х170х6000 сорт АВ - 1000 руб./м2
-                </option>
-                <option value="432">
-                  Планкен прямой 20х120х6000 - 432 руб./м2
-                </option>
-                <option value="504">
-                  Планкен прямой 20х140х6000 - 504 руб./м2
-                </option>
-                <option value="480">
-                  Доска четверть 16х140х3000 - 480 руб./м2
-                </option>
-                <option value="310">
-                  Вагонка Softline сорт С 12,5х80х3300 - 310 руб./м2
-                </option>
-                <option value="380">
-                  Вагонка Softline 12,5х0,96х6000 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Вагонка &quot;Колхозница&quot; 12,5х96х2700 сорт АВ -
-                  380 руб./м2
-                </option>
-                <option value="1260">
-                  Блок хаус сорт А 45х190х6000 - 1260 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;А&quot; 12,5х96х2700 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;А&quot; 12,5х96х3000 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;А&quot; 12,5х96х6000 - 380 руб./м2
-                </option>
-                <option value="430">
-                  Вагонка штиль сорт А 14х95х3000 - 430 руб./м2
-                </option>
-                <option value="430">
-                  Вагонка штиль сорт А 14х125х6000 - 430 руб./м2
-                </option>
-                <option value="430">
-                  Вагонка штиль 14х140х6000 (сорт А) - 430 руб./м2
-                </option>
-                <option value="400">
-                  Вагонка штиль сорт С 16х115х3000 - 400 руб./м2
-                </option>
-                <option value="1000">
-                  Имитация бруса 36х195х6000 сорт А - 1000 руб./м2
-                </option>
-                <option value="1000">
-                  Имитация бруса 36х170х6000 сорт А - 1000 руб./м2
-                </option>
-                <option value="1200">
-                  Имитация бруса 32х185х6000 сорт АВ - 1200 руб./м2
-                </option>
-                <option value="780">
-                  Имитация бруса 27х195х6000 сорт А - 780 руб./м2
-                </option>
-                <option value="780">
-                  Имитация бруса 27х140х6000 сорт А - 780 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х195х6000 сорт А - 600 руб./м2
-                </option>
-                <option value="480">
-                  Имитация бруса 16х96х3000 сорт АВ - 480 руб./м2
-                </option>
-                <option value="480">
-                  Имитация бруса 16х110х3000 сорт АВ - 480 руб./м2
-                </option>
-                <option value="480">
-                  Доска четверть 16х110х6000 - 480 руб./м2
-                </option>
-                <option value="480">
-                  Имитация бруса 16х140х3000 сорт ВС - 480 руб./м2
-                </option>
-                <option value="480">
-                  Имитация бруса 16х140х3000 сорт АВ - 480 руб./м2
-                </option>
-                <option value="540">
-                  Имитация бруса 18х145х6000 сорт АВ - 540 руб./м2
-                </option>
-                <option value="540">
-                  Имитация бруса 18х195х6000 сорт АВ - 540 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х140х6000 сорт ВС - 600 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х190х6000 сорт ВС - 600 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х145х6000 сорт А - 600 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х190х3,4,5 сорт АВ - 600 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х140х3,4,5 сорт АВ - 600 руб./м2
-                </option>
-                <option value="480">
-                  Вагонка штиль сорт А 16х115х3000 - 480 руб./м2
-                </option>
-                <option value="480">
-                  Доска четверть 16х140х6000 - 480 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;А&quot; 12,5х96х2100 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;А&quot; 12,5х96х2500 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;АВ&quot; 12,5х96х2700 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;АВ&quot; 12,5х96х3000 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;А&quot; 12,5х96х4000 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;АВ&quot; 12,5х96х6000 - 380 руб./м2
-                </option>
-                <option value="310">
-                  Евровагонка &quot;С&quot; 12,5х96х3000 - 310 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х140х6000 Сорт В - 600 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х140х6000 сорт АВ - 600 руб./м2
-                </option>
-              </select>
-              <span class="label0">Материал потолка:</span>
-              <select id="potolok" name="potolok" size="1" onChange="calc();" onKeyUp="calc();" onClick="calc();">
-                <option value="0">&nbsp;</option>
-                <option value="650">
-                  Имитация бруса 22х170х6000 сорт А - 650 руб./м2
-                </option>
-                <option value="480">
-                  Имитация бруса 16х96х6000 сорт АВ - 480 руб./м2
-                </option>
-                <option value="380">
-                  Вагонка штиль сорт А 12,5х96х3000 - 380 руб./м2
-                </option>
-                <option value="430">
-                  Вагонка штиль сорт АВ 14х140х6000 - 430 руб./м2
-                </option>
-                <option value="480">
-                  Имитация бруса 16х140х6000 Сорт АВ - 480 руб./м2
-                </option>
-                <option value="480">
-                  Имитация бруса 16х140х6000 Сорт С - 480 руб./м2
-                </option>
-                <option value="380">
-                  Вагонка Softline сорт А 12,5х80х3300 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Вагонка Softline сорт АВ 12,5х0,82х3600 - 380 руб./м2
-                </option>
-                <option value="480">
-                  Доска четверть 20х140х6000 - 480 руб./м2
-                </option>
-                <option value="600">
-                  Доска четверть 20х120х6000 - 600 руб./м2
-                </option>
-                <option value="600">
-                  Доска четверть 20х90х4000 - 600 руб./м2
-                </option>
-                <option value="480">
-                  Вагонка &quot;Колхозница&quot; 16х96х6000 сорт АВ - 480
-                  руб./м2
-                </option>
-                <option value="480">
-                  Вагонка &quot;Колхозница&quot; 16х96х3000 сорт АВ - 480
-                  руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;А&quot; 12,5х96х5000 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;А&quot; 12,5х96х2400 - 380 руб./м2
-                </option>
-                <option value="310">
-                  Евровагонка &quot;С&quot; 12,5х96х2500 - 310 руб./м2
-                </option>
-                <option value="310">
-                  Евровагонка &quot;С&quot; 12,5х96х3000 - 310 руб./м2
-                </option>
-                <option value="310">
-                  Евровагонка &quot;С&quot; 12,5х96х2700 - 310 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;А&quot; 12,5х96х2000 - 380 руб./м2
-                </option>
-                <option value="480">
-                  Имитация бруса 16х110х6000 сорт АВ - 480 руб./м2
-                </option>
-                <option value="430">
-                  Вагонка штиль сорт А 14х95х6000 - 430 руб./м2
-                </option>
-                <option value="480">
-                  Вагонка &quot;Колхозница&quot; 16х96х2700 сорт АВ - 480
-                  руб./м2
-                </option>
-                <option value="380">
-                  Вагонка &quot;Колхозница&quot; 13х96х6000 сорт АВ - 380
-                  руб./м2
-                </option>
-                <option value="480">
-                  Вагонка штиль сорт А 16х96х4000 - 480 руб./м2
-                </option>
-                <option value="310">
-                  Вагонка штиль сорт С 12,5х96х3000 - 310 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х190х6000 сорт АВ - 600 руб./м2
-                </option>
-                <option value="480">
-                  Вагонка штиль сорт А 16х115х6000 - 480 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х190х6000 сорт С - 600 руб./м2
-                </option>
-                <option value="600">
-                  Доска четверть 20х115х6000 - 600 руб./м2
-                </option>
-                <option value="650">
-                  Имитация бруса 22х195х6000 сорт А - 650 руб./м2
-                </option>
-                <option value="650">
-                  Имитация бруса 22х145х6000 сорт А - 650 руб./м2
-                </option>
-                <option value="480">
-                  Имитация бруса 16х140х6000 сорт А - 480 руб./м2
-                </option>
-                <option value="540">
-                  Имитация бруса 18х170х6000 сорт А - 540 руб./м2
-                </option>
-                <option value="540">
-                  Имитация бруса 18х195х6000 сорт А - 540 руб./м2
-                </option>
-                <option value="600">
-                  Доска четверть 20х95х6000 - 600 руб./м2
-                </option>
-                <option value="432">
-                  Планкен прямой 20х120х6000 - 432 руб./м2
-                </option>
-                <option value="504">
-                  Планкен прямой 20х140х6000 - 504 руб./м2
-                </option>
-                <option value="480">
-                  Доска четверть 16х140х3000 - 480 руб./м2
-                </option>
-                <option value="310">
-                  Вагонка Softline сорт С 12,5х80х3300 - 310 руб./м2
-                </option>
-                <option value="380">
-                  Вагонка Softline 12,5х0,96х6000 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Вагонка &quot;Колхозница&quot; 12,5х96х2700 сорт АВ -
-                  380 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;А&quot; 12,5х96х2700 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;А&quot; 12,5х96х3000 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;А&quot; 12,5х96х6000 - 380 руб./м2
-                </option>
-                <option value="430">
-                  Вагонка штиль сорт А 14х95х3000 - 430 руб./м2
-                </option>
-                <option value="430">
-                  Вагонка штиль сорт А 14х125х6000 - 430 руб./м2
-                </option>
-                <option value="430">
-                  Вагонка штиль 14х140х6000 (сорт А) - 430 руб./м2
-                </option>
-                <option value="400">
-                  Вагонка штиль сорт С 16х115х3000 - 400 руб./м2
-                </option>
-                <option value="1000">
-                  Имитация бруса 36х195х6000 сорт А - 1000 руб./м2
-                </option>
-                <option value="1000">
-                  Имитация бруса 36х170х6000 сорт А - 1000 руб./м2
-                </option>
-                <option value="1200">
-                  Имитация бруса 32х185х6000 сорт АВ - 1200 руб./м2
-                </option>
-                <option value="780">
-                  Имитация бруса 27х195х6000 сорт А - 780 руб./м2
-                </option>
-                <option value="780">
-                  Имитация бруса 27х140х6000 сорт А - 780 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х195х6000 сорт А - 600 руб./м2
-                </option>
-                <option value="480">
-                  Имитация бруса 16х96х3000 сорт АВ - 480 руб./м2
-                </option>
-                <option value="480">
-                  Имитация бруса 16х110х3000 сорт АВ - 480 руб./м2
-                </option>
-                <option value="480">
-                  Доска четверть 16х110х6000 - 480 руб./м2
-                </option>
-                <option value="480">
-                  Имитация бруса 16х140х3000 сорт ВС - 480 руб./м2
-                </option>
-                <option value="480">
-                  Имитация бруса 16х140х3000 сорт АВ - 480 руб./м2
-                </option>
-                <option value="540">
-                  Имитация бруса 18х145х6000 сорт АВ - 540 руб./м2
-                </option>
-                <option value="540">
-                  Имитация бруса 18х195х6000 сорт АВ - 540 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х140х6000 сорт ВС - 600 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х190х6000 сорт ВС - 600 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х145х6000 сорт А - 600 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х190х3,4,5 сорт АВ - 600 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х140х3,4,5 сорт АВ - 600 руб./м2
-                </option>
-                <option value="480">
-                  Вагонка штиль сорт А 16х115х3000 - 480 руб./м2
-                </option>
-                <option value="480">
-                  Доска четверть 16х140х6000 - 480 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;А&quot; 12,5х96х2100 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;А&quot; 12,5х96х2500 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;АВ&quot; 12,5х96х2700 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;АВ&quot; 12,5х96х3000 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;А&quot; 12,5х96х4000 - 380 руб./м2
-                </option>
-                <option value="380">
-                  Евровагонка &quot;АВ&quot; 12,5х96х6000 - 380 руб./м2
-                </option>
-                <option value="310">
-                  Евровагонка &quot;С&quot; 12,5х96х3000 - 310 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х140х6000 Сорт В - 600 руб./м2
-                </option>
-                <option value="600">
-                  Имитация бруса 20х140х6000 сорт АВ - 600 руб./м2
-                </option>
-              </select>
-              <span class="label0">Материал пола:</span>
-              <select id="polovaya" name="polovaya" size="1" onChange="calc();" onKeyUp="calc();" onClick="calc();">
-                <option value="0">&nbsp;</option>
-                <option value="780">
-                  Европол 28х115х6000 сорт АВ - 780 руб./м2
-                </option>
-                <option value="1000">
-                  Европол 35х110х6000 сорт ВС - 1000 руб./м2
-                </option>
-                <option value="1000">
-                  Европол 35х140х6000 сорт &quot;АВ&quot; - 1000 руб./м2
-                </option>
-                <option value="1260">
-                  Европол 45х140х6000 сорт АВ - 1260 руб./м2
-                </option>
-                <option value="780">
-                  Европол 28х140х6000 сорт АВ - 780 руб./м2
-                </option>
-                <option value="600">
-                  Европол 20х96х6000 сорт АВ - 600 руб./м2
-                </option>
-                <option value="1000">
-                  Европол 35х115х6000 сорт АВ - 1000 руб./м2
-                </option>
-                <option value="1260">
-                  Европол 45х125х6000 сорт АВ - 1260 руб./м2
-                </option>
-                <option value="1260">
-                  Европол 45х95х6000 сорт АВ - 1260 руб./м2
-                </option>
-                <option value="1000">
-                  Европол 35х95х6000 сорт АВ - 1000 руб./м2
-                </option>
-                <option value="1000">
-                  Европол 35х125х6000 сорт АВ - 1000 руб./м2
-                </option>
-                <option value="500">
-                  Европол 20х96х6000 сорт ВС - 500 руб./м2
-                </option>
-                <option value="650">
-                  Европол 25х90х6000 сорт АВ - 650 руб./м2
-                </option>
-                <option value="780">
-                  Европол 28х115х3000 сорт АВ - 780 руб./м2
-                </option>
-                <option value="1260">
-                  Европол 45х115х6000 сорт АВ - 1260 руб./м2
-                </option>
-                <option value="1500">
-                  Европол 55х120х6000 сорт АВ - 1500 руб./м2
-                </option>
-                <option value="1260">
-                  Европол 45х140х6000 сорт А - 1260 руб./м2
-                </option>
-                <option value="1000">
-                  Европол 35х150х6000 сорт АВ - 1000 руб./м2
-                </option>
-                <option value="1000">
-                  Европол 35х145х6000 сорт А - 1000 руб./м2
-                </option>
-                <option value="1000">
-                  Европол 35х110х3000 сорт ВС - 1000 руб./м2
-                </option>
-                <option value="1000">
-                  Европол 36х95х6000 сорт А - 1000 руб./м2
-                </option>
-                <option value="780">
-                  Европол 28х140х6000 сорт А - 780 руб./м2
-                </option>
-                <option value="600">
-                  Европол 20х140х6000 сорт АВ - 600 руб./м2
-                </option>
-                <option value="600">
-                  Европол 20х105х6000 сорт АВ - 600 руб./м2
-                </option>
+          <h2>Материалы</h2>
+          <div class="calcw">
+            <label for="stena" class="label0">Материал стен:</label>
+            <select id="stena" name="stena" size="1" onChange="calc();" onKeyUp="calc();" onClick="calc();">
+              <option value="0">&nbsp;</option>
+              <option value="650">
+                Имитация бруса 22х170х6000 сорт А - 650 руб./м2
+              </option>
+              <option value="780">
+                Имитация бруса 28х110х4000 сорт АВ - 780 руб./м2
+              </option>
+              <option value="780">
+                Имитация бруса 28х190х6000 сорт АВ - 780 руб./м2
+              </option>
+              <option value="1000">
+                Имитация бруса 36х190х6000 сорт АВ - 1000 руб./м2
+              </option>
+              <option value="480">
+                Имитация бруса 16х96х6000 сорт АВ - 480 руб./м2
+              </option>
+              <option value="600">
+                Блок хаус сорт АВ 20х96х6000 - 600 руб./м2
+              </option>
+              <option value="780">
+                Блок хаус сорт АВ 28х140х6000 - 780 руб./м2
+              </option>
+              <option value="1000">
+                Блок хаус сорт АВ 36х140х6000 - 1000 руб./м2
+              </option>
+              <option value="1000">
+                Блок хаус сорт А 36х190х6000 - 1000 руб./м2
+              </option>
+              <option value="1260">
+                Блок хаус сорт А 45х140х6000 - 1260 руб./м2
+              </option>
+              <option value="380">
+                Вагонка штиль сорт А 12,5х96х3000 - 380 руб./м2
+              </option>
+              <option value="430">
+                Вагонка штиль сорт АВ 14х140х6000 - 430 руб./м2
+              </option>
+              <option value="480">
+                Имитация бруса 16х140х6000 Сорт АВ - 480 руб./м2
+              </option>
+              <option value="480">
+                Имитация бруса 16х140х6000 Сорт С - 480 руб./м2
+              </option>
+              <option value="900">
+                Имитация бруса 32х185х6000 Сорт А - 900 руб./м2
+              </option>
+              <option value="380">
+                Вагонка Softline сорт А 12,5х80х3300 - 380 руб./м2
+              </option>
+              <option value="380">
+                Вагонка Softline сорт АВ 12,5х0,82х3600 - 380 руб./м2
+              </option>
+              <option value="480">
+                Доска четверть 20х140х6000 - 480 руб./м2
+              </option>
+              <option value="1260">
+                Блок хаус сорт АВ 45х190х6000 - 1260 руб./м2
+              </option>
+              <option value="600">
+                Доска четверть 20х120х6000 - 600 руб./м2
+              </option>
+              <option value="600">
+                Доска четверть 20х90х4000 - 600 руб./м2
+              </option>
+              <option value="480">
+                Вагонка &quot;Колхозница&quot; 16х96х6000 сорт АВ - 480
+                руб./м2
+              </option>
+              <option value="480">
+                Вагонка &quot;Колхозница&quot; 16х96х3000 сорт АВ - 480
+                руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;А&quot; 12,5х96х5000 - 380 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;А&quot; 12,5х96х2400 - 380 руб./м2
+              </option>
+              <option value="310">
+                Евровагонка &quot;С&quot; 12,5х96х2500 - 310 руб./м2
+              </option>
+              <option value="310">
+                Евровагонка &quot;С&quot; 12,5х96х3000 - 310 руб./м2
+              </option>
+              <option value="310">
+                Евровагонка &quot;С&quot; 12,5х96х2700 - 310 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;А&quot; 12,5х96х2000 - 380 руб./м2
+              </option>
+              <option value="480">
+                Имитация бруса 16х110х6000 сорт АВ - 480 руб./м2
+              </option>
+              <option value="430">
+                Вагонка штиль сорт А 14х95х6000 - 430 руб./м2
+              </option>
+              <option value="480">
+                Вагонка &quot;Колхозница&quot; 16х96х2700 сорт АВ - 480
+                руб./м2
+              </option>
+              <option value="380">
+                Вагонка &quot;Колхозница&quot; 13х96х6000 сорт АВ - 380
+                руб./м2
+              </option>
+              <option value="480">
+                Вагонка штиль сорт А 16х96х4000 - 480 руб./м2
+              </option>
+              <option value="310">
+                Вагонка штиль сорт С 12,5х96х3000 - 310 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х190х6000 сорт АВ - 600 руб./м2
+              </option>
+              <option value="480">
+                Вагонка штиль сорт А 16х115х6000 - 480 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х190х6000 сорт С - 600 руб./м2
+              </option>
+              <option value="600">
+                Доска четверть 20х115х6000 - 600 руб./м2
+              </option>
+              <option value="1000">
+                Блок хаус сорт А 36х170х6000 - 1000 руб./м2
+              </option>
+              <option value="650">
+                Имитация бруса 22х195х6000 сорт А - 650 руб./м2
+              </option>
+              <option value="650">
+                Имитация бруса 22х145х6000 сорт А - 650 руб./м2
+              </option>
+              <option value="480">
+                Имитация бруса 16х140х6000 сорт А - 480 руб./м2
+              </option>
+              <option value="540">
+                Имитация бруса 18х170х6000 сорт А - 540 руб./м2
+              </option>
+              <option value="540">
+                Имитация бруса 18х195х6000 сорт А - 540 руб./м2
+              </option>
+              <option value="600">
+                Доска четверть 20х95х6000 - 600 руб./м2
+              </option>
+              <option value="780">
+                Имитация бруса 28х110х3000 сорт АВ - 780 руб./м2
+              </option>
+              <option value="1000">
+                Имитация бруса 36х170х6000 сорт АВ - 1000 руб./м2
+              </option>
+              <option value="432">
+                Планкен прямой 20х120х6000 - 432 руб./м2
+              </option>
+              <option value="504">
+                Планкен прямой 20х140х6000 - 504 руб./м2
+              </option>
+              <option value="480">
+                Доска четверть 16х140х3000 - 480 руб./м2
+              </option>
+              <option value="310">
+                Вагонка Softline сорт С 12,5х80х3300 - 310 руб./м2
+              </option>
+              <option value="380">
+                Вагонка Softline 12,5х0,96х6000 - 380 руб./м2
+              </option>
+              <option value="380">
+                Вагонка &quot;Колхозница&quot; 12,5х96х2700 сорт АВ -
+                380 руб./м2
+              </option>
+              <option value="1260">
+                Блок хаус сорт А 45х190х6000 - 1260 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;А&quot; 12,5х96х2700 - 380 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;А&quot; 12,5х96х3000 - 380 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;А&quot; 12,5х96х6000 - 380 руб./м2
+              </option>
+              <option value="430">
+                Вагонка штиль сорт А 14х95х3000 - 430 руб./м2
+              </option>
+              <option value="430">
+                Вагонка штиль сорт А 14х125х6000 - 430 руб./м2
+              </option>
+              <option value="430">
+                Вагонка штиль 14х140х6000 (сорт А) - 430 руб./м2
+              </option>
+              <option value="400">
+                Вагонка штиль сорт С 16х115х3000 - 400 руб./м2
+              </option>
+              <option value="1000">
+                Имитация бруса 36х195х6000 сорт А - 1000 руб./м2
+              </option>
+              <option value="1000">
+                Имитация бруса 36х170х6000 сорт А - 1000 руб./м2
+              </option>
+              <option value="1200">
+                Имитация бруса 32х185х6000 сорт АВ - 1200 руб./м2
+              </option>
+              <option value="780">
+                Имитация бруса 27х195х6000 сорт А - 780 руб./м2
+              </option>
+              <option value="780">
+                Имитация бруса 27х140х6000 сорт А - 780 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х195х6000 сорт А - 600 руб./м2
+              </option>
+              <option value="480">
+                Имитация бруса 16х96х3000 сорт АВ - 480 руб./м2
+              </option>
+              <option value="480">
+                Имитация бруса 16х110х3000 сорт АВ - 480 руб./м2
+              </option>
+              <option value="480">
+                Доска четверть 16х110х6000 - 480 руб./м2
+              </option>
+              <option value="480">
+                Имитация бруса 16х140х3000 сорт ВС - 480 руб./м2
+              </option>
+              <option value="480">
+                Имитация бруса 16х140х3000 сорт АВ - 480 руб./м2
+              </option>
+              <option value="540">
+                Имитация бруса 18х145х6000 сорт АВ - 540 руб./м2
+              </option>
+              <option value="540">
+                Имитация бруса 18х195х6000 сорт АВ - 540 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х140х6000 сорт ВС - 600 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х190х6000 сорт ВС - 600 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х145х6000 сорт А - 600 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х190х3,4,5 сорт АВ - 600 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х140х3,4,5 сорт АВ - 600 руб./м2
+              </option>
+              <option value="480">
+                Вагонка штиль сорт А 16х115х3000 - 480 руб./м2
+              </option>
+              <option value="480">
+                Доска четверть 16х140х6000 - 480 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;А&quot; 12,5х96х2100 - 380 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;А&quot; 12,5х96х2500 - 380 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;АВ&quot; 12,5х96х2700 - 380 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;АВ&quot; 12,5х96х3000 - 380 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;А&quot; 12,5х96х4000 - 380 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;АВ&quot; 12,5х96х6000 - 380 руб./м2
+              </option>
+              <option value="310">
+                Евровагонка &quot;С&quot; 12,5х96х3000 - 310 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х140х6000 Сорт В - 600 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х140х6000 сорт АВ - 600 руб./м2
+              </option>
+            </select>
+            <label for="potolok" class="label0">Материал потолка:</label>
+            <select id="potolok" name="potolok" size="1" onChange="calc();" onKeyUp="calc();" onClick="calc();">
+              <option value="0">&nbsp;</option>
+              <option value="650">
+                Имитация бруса 22х170х6000 сорт А - 650 руб./м2
+              </option>
+              <option value="480">
+                Имитация бруса 16х96х6000 сорт АВ - 480 руб./м2
+              </option>
+              <option value="380">
+                Вагонка штиль сорт А 12,5х96х3000 - 380 руб./м2
+              </option>
+              <option value="430">
+                Вагонка штиль сорт АВ 14х140х6000 - 430 руб./м2
+              </option>
+              <option value="480">
+                Имитация бруса 16х140х6000 Сорт АВ - 480 руб./м2
+              </option>
+              <option value="480">
+                Имитация бруса 16х140х6000 Сорт С - 480 руб./м2
+              </option>
+              <option value="380">
+                Вагонка Softline сорт А 12,5х80х3300 - 380 руб./м2
+              </option>
+              <option value="380">
+                Вагонка Softline сорт АВ 12,5х0,82х3600 - 380 руб./м2
+              </option>
+              <option value="480">
+                Доска четверть 20х140х6000 - 480 руб./м2
+              </option>
+              <option value="600">
+                Доска четверть 20х120х6000 - 600 руб./м2
+              </option>
+              <option value="600">
+                Доска четверть 20х90х4000 - 600 руб./м2
+              </option>
+              <option value="480">
+                Вагонка &quot;Колхозница&quot; 16х96х6000 сорт АВ - 480
+                руб./м2
+              </option>
+              <option value="480">
+                Вагонка &quot;Колхозница&quot; 16х96х3000 сорт АВ - 480
+                руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;А&quot; 12,5х96х5000 - 380 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;А&quot; 12,5х96х2400 - 380 руб./м2
+              </option>
+              <option value="310">
+                Евровагонка &quot;С&quot; 12,5х96х2500 - 310 руб./м2
+              </option>
+              <option value="310">
+                Евровагонка &quot;С&quot; 12,5х96х3000 - 310 руб./м2
+              </option>
+              <option value="310">
+                Евровагонка &quot;С&quot; 12,5х96х2700 - 310 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;А&quot; 12,5х96х2000 - 380 руб./м2
+              </option>
+              <option value="480">
+                Имитация бруса 16х110х6000 сорт АВ - 480 руб./м2
+              </option>
+              <option value="430">
+                Вагонка штиль сорт А 14х95х6000 - 430 руб./м2
+              </option>
+              <option value="480">
+                Вагонка &quot;Колхозница&quot; 16х96х2700 сорт АВ - 480
+                руб./м2
+              </option>
+              <option value="380">
+                Вагонка &quot;Колхозница&quot; 13х96х6000 сорт АВ - 380
+                руб./м2
+              </option>
+              <option value="480">
+                Вагонка штиль сорт А 16х96х4000 - 480 руб./м2
+              </option>
+              <option value="310">
+                Вагонка штиль сорт С 12,5х96х3000 - 310 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х190х6000 сорт АВ - 600 руб./м2
+              </option>
+              <option value="480">
+                Вагонка штиль сорт А 16х115х6000 - 480 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х190х6000 сорт С - 600 руб./м2
+              </option>
+              <option value="600">
+                Доска четверть 20х115х6000 - 600 руб./м2
+              </option>
+              <option value="650">
+                Имитация бруса 22х195х6000 сорт А - 650 руб./м2
+              </option>
+              <option value="650">
+                Имитация бруса 22х145х6000 сорт А - 650 руб./м2
+              </option>
+              <option value="480">
+                Имитация бруса 16х140х6000 сорт А - 480 руб./м2
+              </option>
+              <option value="540">
+                Имитация бруса 18х170х6000 сорт А - 540 руб./м2
+              </option>
+              <option value="540">
+                Имитация бруса 18х195х6000 сорт А - 540 руб./м2
+              </option>
+              <option value="600">
+                Доска четверть 20х95х6000 - 600 руб./м2
+              </option>
+              <option value="432">
+                Планкен прямой 20х120х6000 - 432 руб./м2
+              </option>
+              <option value="504">
+                Планкен прямой 20х140х6000 - 504 руб./м2
+              </option>
+              <option value="480">
+                Доска четверть 16х140х3000 - 480 руб./м2
+              </option>
+              <option value="310">
+                Вагонка Softline сорт С 12,5х80х3300 - 310 руб./м2
+              </option>
+              <option value="380">
+                Вагонка Softline 12,5х0,96х6000 - 380 руб./м2
+              </option>
+              <option value="380">
+                Вагонка &quot;Колхозница&quot; 12,5х96х2700 сорт АВ -
+                380 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;А&quot; 12,5х96х2700 - 380 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;А&quot; 12,5х96х3000 - 380 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;А&quot; 12,5х96х6000 - 380 руб./м2
+              </option>
+              <option value="430">
+                Вагонка штиль сорт А 14х95х3000 - 430 руб./м2
+              </option>
+              <option value="430">
+                Вагонка штиль сорт А 14х125х6000 - 430 руб./м2
+              </option>
+              <option value="430">
+                Вагонка штиль 14х140х6000 (сорт А) - 430 руб./м2
+              </option>
+              <option value="400">
+                Вагонка штиль сорт С 16х115х3000 - 400 руб./м2
+              </option>
+              <option value="1000">
+                Имитация бруса 36х195х6000 сорт А - 1000 руб./м2
+              </option>
+              <option value="1000">
+                Имитация бруса 36х170х6000 сорт А - 1000 руб./м2
+              </option>
+              <option value="1200">
+                Имитация бруса 32х185х6000 сорт АВ - 1200 руб./м2
+              </option>
+              <option value="780">
+                Имитация бруса 27х195х6000 сорт А - 780 руб./м2
+              </option>
+              <option value="780">
+                Имитация бруса 27х140х6000 сорт А - 780 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х195х6000 сорт А - 600 руб./м2
+              </option>
+              <option value="480">
+                Имитация бруса 16х96х3000 сорт АВ - 480 руб./м2
+              </option>
+              <option value="480">
+                Имитация бруса 16х110х3000 сорт АВ - 480 руб./м2
+              </option>
+              <option value="480">
+                Доска четверть 16х110х6000 - 480 руб./м2
+              </option>
+              <option value="480">
+                Имитация бруса 16х140х3000 сорт ВС - 480 руб./м2
+              </option>
+              <option value="480">
+                Имитация бруса 16х140х3000 сорт АВ - 480 руб./м2
+              </option>
+              <option value="540">
+                Имитация бруса 18х145х6000 сорт АВ - 540 руб./м2
+              </option>
+              <option value="540">
+                Имитация бруса 18х195х6000 сорт АВ - 540 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х140х6000 сорт ВС - 600 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х190х6000 сорт ВС - 600 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х145х6000 сорт А - 600 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х190х3,4,5 сорт АВ - 600 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х140х3,4,5 сорт АВ - 600 руб./м2
+              </option>
+              <option value="480">
+                Вагонка штиль сорт А 16х115х3000 - 480 руб./м2
+              </option>
+              <option value="480">
+                Доска четверть 16х140х6000 - 480 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;А&quot; 12,5х96х2100 - 380 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;А&quot; 12,5х96х2500 - 380 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;АВ&quot; 12,5х96х2700 - 380 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;АВ&quot; 12,5х96х3000 - 380 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;А&quot; 12,5х96х4000 - 380 руб./м2
+              </option>
+              <option value="380">
+                Евровагонка &quot;АВ&quot; 12,5х96х6000 - 380 руб./м2
+              </option>
+              <option value="310">
+                Евровагонка &quot;С&quot; 12,5х96х3000 - 310 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х140х6000 Сорт В - 600 руб./м2
+              </option>
+              <option value="600">
+                Имитация бруса 20х140х6000 сорт АВ - 600 руб./м2
+              </option>
+            </select>
+            <label for="polovaya" class="label0">Материал пола:</label>
+            <select id="polovaya" name="polovaya" size="1" onChange="calc();" onKeyUp="calc();" onClick="calc();">
+              <option value="0">&nbsp;</option>
+              <option value="780">
+                Европол 28х115х6000 сорт АВ - 780 руб./м2
+              </option>
+              <option value="1000">
+                Европол 35х110х6000 сорт ВС - 1000 руб./м2
+              </option>
+              <option value="1000">
+                Европол 35х140х6000 сорт &quot;АВ&quot; - 1000 руб./м2
+              </option>
+              <option value="1260">
+                Европол 45х140х6000 сорт АВ - 1260 руб./м2
+              </option>
+              <option value="780">
+                Европол 28х140х6000 сорт АВ - 780 руб./м2
+              </option>
+              <option value="600">
+                Европол 20х96х6000 сорт АВ - 600 руб./м2
+              </option>
+              <option value="1000">
+                Европол 35х115х6000 сорт АВ - 1000 руб./м2
+              </option>
+              <option value="1260">
+                Европол 45х125х6000 сорт АВ - 1260 руб./м2
+              </option>
+              <option value="1260">
+                Европол 45х95х6000 сорт АВ - 1260 руб./м2
+              </option>
+              <option value="1000">
+                Европол 35х95х6000 сорт АВ - 1000 руб./м2
+              </option>
+              <option value="1000">
+                Европол 35х125х6000 сорт АВ - 1000 руб./м2
+              </option>
+              <option value="500">
+                Европол 20х96х6000 сорт ВС - 500 руб./м2
+              </option>
+              <option value="650">
+                Европол 25х90х6000 сорт АВ - 650 руб./м2
+              </option>
+              <option value="780">
+                Европол 28х115х3000 сорт АВ - 780 руб./м2
+              </option>
+              <option value="1260">
+                Европол 45х115х6000 сорт АВ - 1260 руб./м2
+              </option>
+              <option value="1500">
+                Европол 55х120х6000 сорт АВ - 1500 руб./м2
+              </option>
+              <option value="1260">
+                Европол 45х140х6000 сорт А - 1260 руб./м2
+              </option>
+              <option value="1000">
+                Европол 35х150х6000 сорт АВ - 1000 руб./м2
+              </option>
+              <option value="1000">
+                Европол 35х145х6000 сорт А - 1000 руб./м2
+              </option>
+              <option value="1000">
+                Европол 35х110х3000 сорт ВС - 1000 руб./м2
+              </option>
+              <option value="1000">
+                Европол 36х95х6000 сорт А - 1000 руб./м2
+              </option>
+              <option value="780">
+                Европол 28х140х6000 сорт А - 780 руб./м2
+              </option>
+              <option value="600">
+                Европол 20х140х6000 сорт АВ - 600 руб./м2
+              </option>
+              <option value="600">
+                Европол 20х105х6000 сорт АВ - 600 руб./м2
+              </option>
+            </select>
+          </div>
+          <div id="itogo"></div>
+          <div class="delivery">
+            <div class="inline">
+              <label for="delivery" class="label0">Доставка:</label>
+              <select id="delivery" name="delivery">
+                <option value="Самовывоз">Самовывоз</option>
+                <option value="Доставка">Доставка</option>
               </select>
             </div>
-            <div id="itogo"></div>
-            <div class="delivery">
-              <div class="inline">
-                <span class="label0">Доставка:</span>
-                <select id="delivery" name="delivery">
-                  <option value="Самовывоз">Самовывоз</option>
-                  <option value="Доставка">Доставка</option>
-                </select>
-              </div>
-              <div class="inline">
-                <span class="label0">Адрес:</span>
-                <input type="text" name="addres" placeholder="Адрес доставки" />
-              </div>
+            <div class="inline">
+              <label for="calc-addres" class="label0">Адрес:</label>
+              <input id="calc-addres" type="text" name="addres" placeholder="Адрес доставки" />
+            </div>
+            <div class="inline">
+              <label for="calc-tel" class="label0">Телефон:</label>
+              <input id="calc-tel" type="tel" name="tel" placeholder="Номер телефона" required />
+            </div>
+            <div class="inline">
+              <label for="calc-email" class="label0">email:</label>
+              <input id="calc-email" name="email" type="email" placeholder="e-mail" />
+            </div>
+          </div>
+          <div class="check" id="check">
+            <h2 style="text-align: center; padding-top:30px;">Ваш заказ:</h2>
+            <hr style="width: 90%; margin: auto; margin-top: 10px" />
+            <!-- Окно с результатом -->
+            <div class="lay2">
+              <div id="count_wall"></div>
               <br />
-              <span class="label0">Телефон:</span>
-              <input type="tel" name="tel" placeholder="Номер телефона" required />
+              <div id="count_ceiling"></div>
               <br />
-              <span class="label0">email:</span>
-              <input name="email" type="email" placeholder="e-mail" />
+              <div id="count_floor"></div>
+              <br />
+              <div id="summ"></div>
             </div>
-            <div class="check" id="check">
-              <h2 style="text-align: center; padding-top:30px;">Ваш заказ:</h2>
-              <hr style="width: 90%; margin: auto; margin-top: 10px" />
-              <!-- Окно с результатом -->
-              <div class="lay2"> 
-                <div id="count_wall"></div>
-                <br />
-                <div id="count_ceiling"></div>
-                <br />
-                <div id="count_floor"></div>
-                <br />
-                <div id="summ"></div>
-              </div>
 
-              <div class="baton">
-                <input type="checkbox" value="Y" checked name="checked" style="width: initial; height: 12px" />
-                <a href="#">Нажимая кнопку, я даю свое согласие на обработку моих
-                  персональных данных</a>
-                <button class="butBig" type="submit">
-                  Оформить заказ
-                </button>
-              </div>
+            <div class="baton">
+              <input type="checkbox" value="Y" checked name="checked" style="width: initial; height: 12px" />
+              <a href="#">Нажимая кнопку, я даю свое согласие на обработку моих
+                персональных данных</a>
+              <button class="butBig" type="submit">
+                Оформить заказ
+              </button>
             </div>
-          </form>
-          <script src="calc.js"></script>
-        </div>
+          </div>
+        </form>
+        <script src="calc.js"></script>
       </div>
+    </div>
   </main>
 </body>
+
 </html>
