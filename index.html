@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="./send-mail.js"></script>
   <link rel="stylesheet" href="./main.css" />
   <title>Калькулятор пиломатериалов</title>
 </head>
@@ -14,7 +15,7 @@
     <h1 id="pageTitle">Калькулятор расчета материалов</h1>
     <div id="page_wrapper">
       <div id="content_wrapper">
-        <form name="calculator" id="formx" action="#">
+        <form name="calculator" id="formx" action="form_processing.php" method="post">
           <img src="./room.png" alt="Площадь помещения" class="calc-top-img" />
           <h2>Размер помещения</h2>
           <div class="calcw">
@@ -681,13 +682,14 @@
             </div>
 
             <div class="baton">
-              <input type="checkbox" value="Y" checked name="checked" style="width: initial; height: 12px" />
+              <input id="checkbox" type="checkbox" value="Y" name="checked" style="width: initial; height: 12px" />
               <a href="#">Нажимая кнопку, я даю свое согласие на обработку моих
                 персональных данных</a>
-              <button class="butBig" type="submit">
+              <button id="submitBtn" class="butBig" type="submit" disabled>
                 Оформить заказ
               </button>
             </div>
+            <p class="response"></p>
           </div>
         </form>
         <script src="calc.js"></script>
